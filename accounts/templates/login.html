@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+
+        #login .container #login-row #login-column #login-box {
+            border: 1px solid #9C9C9C;
+        }
+
+        #login .container #login-row #login-column #login-box #login-form {
+            padding: 20px;
+        }
+
+        #login .container #login-row #login-column #login-box #login-form #register-link {
+            margin-top: -85px;
+        }
+
+
+
+    </style>
+    <!-- Custom styles for this template -->
+</head>
+<body>
+<div id="login">
+    <h3 class="text-center text-white pt-5">Login form</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form method="POST" action="{% url 'login' %}">
+                        <h3 class="text-center text-info">Login</h3>
+                        {% if error %}
+                        <br/>
+                        <h6 style="color:red">{{ error }}</h6>
+                        <br/>
+                        {% endif %}
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="text-info" for="username">Username</label><br>
+                            <input type="text" id="username" name="username" placeholder="Username" class="form-control"
+                                   autocomplete="false">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Password"
+                                   class="form-control" autocomplete="off">
+                        </div>
+                        <div id="register-link">
+                            <button type="submit" class="btn btn-success btn-md">Login</button>
+                        </div>
+                        <div id="signup-link" class="text-right">
+
+                            <button type="submit" class="btn btn-success btn-md"><a href="{% url 'signup' %}">signup</a>
+                            </button>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
