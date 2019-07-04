@@ -7,12 +7,13 @@
     </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}">
 </head>
 <body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand"><img src="{% static 'logo.png' %}" class="d-inline-block alighn-top" height="30"
+            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'logo.png' %}" class="d-inline-block alighn-top" height="30"
                                          width="30"/>Product Hunt</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +31,7 @@
                             {% csrf_token %}
                             <input type="hidden"/>
                         </form>
+                        <a href="{% url 'create' %}"><small><span class="oi oi-plus"/> Create</small></a>
                         {% else %}
                         <a href="{% url 'login' %}">
                             Login
